@@ -1,0 +1,22 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"C:/Users/sirin/OneDrive/Escritorio/StemReach-Prototype/StemReach/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset",
+				"C:/Users/sirin/OneDrive/Escritorio/StemReach-Prototype/StemReach/Content/ThirdPerson/Blueprints/StemGameInstance.uasset",
+				"C:/Users/sirin/OneDrive/Escritorio/StemReach-Prototype/StemReach/Content/ThirdPerson/Blueprints/InteractInterface.uasset",
+				"C:/Users/sirin/OneDrive/Escritorio/StemReach-Prototype/StemReach/Content/ThirdPerson/Blueprints/BP_ThirdPersonCharacter.uasset",
+				"C:/Users/sirin/OneDrive/Escritorio/StemReach-Prototype/StemReach/Content/LevelObjects/InteractableCube.uasset",
+				"C:/Users/sirin/OneDrive/Escritorio/StemReach-Prototype/StemReach/Content/LevelObjects/InteractableObjectTemplate.uasset",
+				"C:/Users/sirin/OneDrive/Escritorio/StemReach-Prototype/StemReach/Content/LevelObjects/InteractableObjectParent.uasset",
+				"C:/Users/sirin/OneDrive/Escritorio/StemReach-Prototype/StemReach/Content/LevelObjects/Interactables/InteractableObjectParent.uasset",
+				"C:/Users/sirin/OneDrive/Escritorio/StemReach-Prototype/StemReach/Content/LevelObjects/Interactables/InteractableCube.uasset",
+				"C:/Users/sirin/OneDrive/Escritorio/StemReach-Prototype/StemReach/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/5/8M/ODKSVPM8E63R0OBM4PFO6P.uasset",
+				"C:/Users/sirin/OneDrive/Escritorio/StemReach-Prototype/StemReach/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/B/ND/TDUDB8WSI7DZVYHQ4LGJBQ.uasset"
+			]
+		}
+	]
+}
