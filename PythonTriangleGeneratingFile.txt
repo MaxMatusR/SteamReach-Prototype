@@ -1,0 +1,71 @@
+import bpy
+import math
+
+# ----- CONFIGURATION -----
+angle_A_deg = 90  # Angle at Vertex A (origin)
+angle_B_deg = 45  # Angle at Vertex B
+angle_C_deg = 45  # Angle at Vertex C
+
+base_length = 2  # Fixed base length AB
+
+# ----- VALIDATION -----
+total = angle_A_deg + angle_B_deg + angle_C_deg
+if total != 180:
+    raise ValueError(f"Angles must add up to 180°, but got {total}°.")
+
+for angle in (angle_A_deg, angle_B_deg, angle_C_deg):
+    if angle <= 0 or angle >= 180:
+        raise ValueError("Each angle must be > 0° and < 180°.")
+
+# ----- CONVERSION TO RADIANS -----
+angle_A_rad = math.radians(angle_A_deg)
+angle_B_rad = math.radians(angle_B_deg)
+angle_C_rad = math.radians(angle_C_deg)
+
+# ----- LAW OF SINES TO COMPUTE SIDE LENGTHS -----
+# AB = base, opposite angle C
+# Use: a / sin(A) = b / sin(B) = c / sin(C)
+
+# Let AB = c = base
+# Then compute AC (b) and BC (a)
+sin_A = math.sin(angle_A_rad)
+sin_B = math.sin(angle_B_rad)
+sin_C = math.sin(angle_C_rad)
+
+# Scale factor based on law of sines
+scale = base_length / sin_C
+length_AC = scale * sin_B  # side opposite to angle B
+length_BC = scale * sin_A  # side opposite to angle A
+
+# ----- CREATE TRIANGLE POINTS -----
+# Place:
+# A at (0, 0)
+# B at (base_length, 0)
+# C calculated using polar coordinates from A
+
+# Vector AC makes an angle of angle_A with AB
+x_C = length_AC * math.cos(angle_A_rad)
+y_C = length_AC * math.sin(angle_A_rad)
+
+verts = [
+    (0, 0, 0),               # A
+    (base_length, 0, 0),     # B
+    (x_C, y_C, 0)            # C
+]
+faces = [(0, 1, 2)]
+
+# ----- CLEAN UP -----
+if "Triangle" in bpy.data.objects:
+    bpy.data.objects.remove(bpy.data.objects["Triangle"], do_unlink=True)
+
+# ----- CREATE MESH -----
+mesh = bpy.data.meshes.new("Triangle")
+obj = bpy.data.objects.new("Triangle", mesh)
+bpy.context.collection.objects.link(obj)
+
+mesh.from_pydata(verts, [], faces)
+mesh.update()
+
+# Select & focus
+bpy.context.view_layer.objects.active = obj
+obj.select_set(True)
